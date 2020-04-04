@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import Error from './Error';
+import PropTypes from 'prop-types';
 
 const Question = ( {guardarPresupuesto, guardarRestante, actualizarPregunta } ) => {
 
@@ -21,7 +22,6 @@ const [ error, guardarError ] = useState(false);
             guardarError(true);
             return;
         }
-
         //si se pasa la validación
         guardarError(false);
         guardarPresupuesto(cantidad);
@@ -54,4 +54,10 @@ const [ error, guardarError ] = useState(false);
      );
 }
  
+Question.propTypes = {
+    guardarPresupuesto: PropTypes.func.isRequired,
+    guardarRestante: PropTypes.func.isRequired,
+    actualizarPregunta: PropTypes.func.isRequired
+} 
+
 export default Question;
